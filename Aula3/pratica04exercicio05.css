@@ -1,0 +1,33 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, .cabecalho, .text-1, .text-2 {
+    padding-left: 40px;
+}
+
+h1 {
+    font-size: 4em;
+    color: aliceblue;
+    background-color:rgb(231, 100, 100) ;
+}
+
+.cabecalho {
+    background-color: rgb(63, 247, 185);
+    color: rgb(138, 187, 252);
+    font-size: 1.5em;
+    padding-top: 20px;
+}
+
+.text-1 {
+    padding-top: 50px;
+    color: chocolate;
+}
+
+.text-2{
+    padding-top: 5px;
+    font-size: 20px;
+    color:crimson;
+}

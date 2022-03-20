@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Atividade CSS 1</title>
+</head>
+<body>
+    
+    <!--Exercicio 1-->
+    <section class="red">
+        <h1 class="branco">Minha lista de compras:</h1>
+
+        <div style="padding-left: 30px; padding-top: 20px;">
+          <ul class="branco">
+            <li>Arroz</li>
+            <li>Feijão</li>
+            <li>Laranja</li>
+            <li>Maçã</li>
+            <li>Pão</li>
+          </ul>
+
+        </div>
+        
+    </section>
+
+    <!--Exercicio 2-->
+    <section class="red" style="margin-top: 10px;">
+
+        <h1 class="branco">Sites:</h1>
+
+        <div style="padding-top: 30px;">
+
+          <ul class="lista1" type="none" >
+            <li class="lista2"><a class="linko" href="https://www.google.com">Google</a></li>
+            <li class="lista2"><a class="linko" href="https://www.youtube.com">Youtube</a></li>
+            <li class="lista2"><a class="linko" href="https://www.instagram.com">Intagram</a></li>
+          </ul>
+
+        </div>       
+
+    </section>
+
+    <!--Exercicio 3-->
+    <section class="red" style="margin-top: 10px;">
+
+        <form action="https://www.google.com.br">
+            <label for="nome">
+              Nome:
+              <input name="nome" type="text" placeholder="informe seu nome" />
+            </label>
+      
+            <fieldset>
+              Escolaridade:
+      
+              <label for="Fundamental">
+                <input type="radio" name="Fundamental" id="Fundamental" />
+                Fundamental
+              </label>
+      
+              <label for="Médio">
+                <input type="radio" name="Médio" id="Médio" />
+                Médio
+              </label>
+      
+              <label for="Superior">
+                <input type="radio" name="Superior" id="Superior" />
+                Superior
+              </label>
+            </fieldset>
+      
+            <fieldset>
+              Veículo:
+      
+              <label for="Bicicleta">
+                <input type="checkbox" name="Bicicleta" id="Bicicleta" />
+                Bicicleta
+              </label>
+      
+              <label for="Moto">
+                <input type="checkbox" name="Moto" id="Moto" />
+                Moto
+              </label>
+      
+              <label for="Carro">
+                <input type="checkbox" name="Carro" id="Carro" />
+                Carro
+              </label>
+            </fieldset>
+      
+            <button type="submit" style="font-weight: bold;">Enviar</button>
+          </form>
+    </section>
+    
+    
+</body>
+</html>

@@ -1,0 +1,75 @@
+body{
+  padding-left: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.red{
+  margin: 0 auto;
+  background-color: tomato;
+  width: 35rem;
+  padding-left: 20px;
+  padding: 10px 20px;
+}
+
+.branco {
+  color: white;
+}
+
+.link {
+  padding: 20px;
+  background-color: blue;
+  color: white;
+}
+
+.quadrados{
+  list-style: none;
+}
+
+/*--------------------------------*/
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+input[type="text"] {
+  padding: 8px;
+}
+
+input {
+  margin: 0 8px;
+}
+
+button {
+  width: fit-content;
+  padding: 16px;
+  background-color: #fac282;
+}
+
+/*--------------------------------*/
+  
+.lista1 {
+  display: flex;
+}
+  
+.lista2 {
+  margin-right: 10px;
+  background: blue;
+  padding: 16px;
+}
+
+/*Herigson, Leandro Ferreira, Pedro Oliveira, Luan Fonseca*/
