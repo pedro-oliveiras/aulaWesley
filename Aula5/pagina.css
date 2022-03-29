@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: rgb(31, 31, 31);
+}
+
+.cabecalho {
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+}
+
+.cabecalho h1 {
+    font-size: 2.5em;
+    color: white;
+}
+
+.container {
+    padding: 2.5em;
+}
+
+.card {
+    width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;    
+}
+
+.info {
+    background-color: tomato;
+    padding: 50px 50px 10px 50px;
+    color: white;
+}
+
+.titulo h1 {
+    font-size: 60px;
+    padding-bottom: 20px;
+}
+
+.sinopse {
+    width: 50em;
+    padding-bottom: 50px;
+}
+
+.filme {
+    width: 300px;
+    height: 400px;
+    min-width: 280px;
+    min-height: 380px;
+    background-color: rgb(53, 53, 53);
+    overflow: hidden;
+    background-color: tomato;
+    padding: 10px;
+}
+
+.filme img {
+    width: 100%;
+    height: 100%;
+}
+
+.quadro {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.quadro a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.ativo {
+    padding: 5px;
+    border-bottom: 5px solid white;  
+}
+
+.quadro a:hover {
+    background-color: rgb(255, 132, 110);
+}
+
+
+.content {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.cabecalho2 {
+    background-color: tomato;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cabecalho2 h1{
+    line-height: 50px;
+    padding-left: 50px;
+}
+
+.corpo {
+    padding-left: 50px;
+    margin-top: 50px;
+}
+
+.corpo h4 {
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 5px solid white;
+    display: inline-block;
+}
+
+.horas {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.horarios {
+    color: white;
+}
+
+footer {
+    background-color: tomato;
+    padding: 2.5em;
+    color: white;
+}
+
+footer .nome {
+    padding-bottom: 10px;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: white;
+}
