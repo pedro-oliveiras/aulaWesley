@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-style: none;
+    text-decoration: none;
+}
+
+header {
+    background-color: #ffbbdd;
+}
+
+nav {
+    background-color: #f0b0d0;
+}
+
+footer {
+    background-color: #ffbbdd;
+}
+
+.titulo {
+    margin-left: 300px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.carta {
+    width: 500px;
+    margin: 0 auto;
+}
+
