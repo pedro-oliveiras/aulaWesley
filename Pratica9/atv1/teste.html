@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Testando APIs</title>
+
+    <script>
+
+        function limpar() {
+            document.getElementById('aba1').classList.remove("active");
+            document.getElementById('aba2').classList.remove("active");
+            document.getElementById('aba3').classList.remove("active");
+            document.getElementById('aba4').classList.remove("active");
+            document.getElementById('aba5').classList.remove("active");
+            document.getElementById('aba6').classList.remove("active");
+        }
+
+        function retorna1() {
+            teste = `<div class="row">
+                        <div class="col-3">
+                            <input class="col-3 form-control" id="numero" type="number" min="1" max="100" value="1">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="getPostagem(numero.value)">Pesquisar</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba1').classList.add("active");
+        }
+
+        function retorna2() {
+            teste = `<div class="row">
+                        <div class="col-3">
+                            <input class="col-3 mb-2 form-control" id="usuario" placeholder="usuario" type="number" min="1" max="10">
+                            <input class="col-3 mb-2 form-control" id="titulo" placeholder="titulo" type="text">
+                            <input class="col-3 mb-2 form-control" id="descricao" placeholder="descrição" type="text">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="postPostagens(usuario.value, titulo.value, descricao.value)">Postar</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba2').classList.add("active");
+        }
+
+        function retorna3() {
+            teste = `<div class="row">
+                        <div class="col-3">                            
+                            <input class="col-3 mb-2 form-control" id="ident" placeholder="id" type="number">
+                            <input class="col-3 mb-2 form-control" id="usuario" placeholder="usuario" type="number" min="1" max="10">
+                            <input class="col-3 mb-2 form-control" id="titulo" placeholder="titulo"  type="text">
+                            <input class="col-3 mb-2 form-control" id="descricao" placeholder="descrição"  type="text">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="atualizarPostagens(ident.value, usuario.value, titulo.value, descricao.value)">Atualizar</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba3').classList.add("active");
+        }
+
+        function retorna4() {
+            teste = `<div class="row">
+                        <div class="col-3">
+                            <input class="col-3 form-control" id="usuario" type="number" min="1" max="10" value="1">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="modificarPostagens(usuario.value)">Modificar</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba4').classList.add("active");
+        }
+
+        function retorna5() {
+            teste = `<div class="row">
+                        <div class="col-3">
+                            <input class="col-3 form-control" id="usuario" type="number" min="1" max="10" value="1">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="removerPostagem(usuario.value)">Remover</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba5').classList.add("active");
+        }
+        
+        function retorna6() {
+            teste = `<div class="row">
+                        <div class="col-3">
+                            <input class="col-3 form-control" id="usuario" type="number" min="1" max="10" value="1">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" onclick="filtrarPostagens(usuario.value)">Filtrar</button>
+                        </div>
+                    </div>`;
+            pagina.innerHTML = teste;
+            limpar();
+            document.getElementById('aba6').classList.add("active");
+        }
+
+        function imprime(objeto) {
+            var mensagem = `
+            <div class="card mt-3">
+                <div class="card-header">
+                    <span class='campo'>ID</span>: ${objeto.id} //
+                    <span class='campo'>Usuario</span>: ${objeto.userId}
+                </div>
+                <div class="card-body">
+                    <h3 class='campo'>Titulo: ${objeto.title}</h3>
+                    <p class='campo'>Mensagem: ${objeto.body}</p>
+                </div>
+            </div>`
+            return mensagem;
+        }
+
+        function imprime2(objeto) {
+            var mensagem;
+            objeto.forEach(function (obj) {
+                mensagem += `
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <span class='campo'>ID</span>: ${obj.id} //
+                        <span class='campo'>Usuario</span>: ${obj.userId}
+                    </div>
+                    <div class="card-body">
+                        <h3 class='campo'>Titulo: ${obj.title}</h3>
+                        <p class='campo'>Mensagem: ${obj.body}</p>
+                    </div>
+                </div>`
+            });
+            return mensagem;
+        }
+
+        async function getPostagem(id) {
+            retorna1();
+
+            await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime(json);
+                });
+        }
+
+        async function postPostagens(id, titulo, corpo) {
+            retorna2();
+
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    title: `${titulo}`,
+                    body: `${corpo}`,
+                    userId: `${id}`,
+                }),
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime(json);
+                });
+        }
+
+        async function atualizarPostagens(id, usuario, titulo, corpo) {
+            retorna3();
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    id: `${id}`,
+                    title: `${titulo}`,
+                    body: `${corpo}`,
+                    userId: `${usuario}`,
+                }),
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime(json);
+                });
+        }
+
+        async function modificarPostagens(id) {
+            retorna4();
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    title: 'Essa é a modificação da minha mais nova postagem! :D',
+                }),
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime(json);
+                });
+        }
+
+        async function removerPostagem(id) {
+            retorna5();
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+                method: 'DELETE',
+            })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json);
+                pagina.innerHTML += imprime(json);
+            });
+        }
+
+        async function filtrarPostagens(id) {
+            retorna6();
+
+            fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime2(json);
+                });
+        }
+
+    </script>
+  </head>
+  <body>
+    <header class="container-fluid bg-light p-2"><a class="text-decoration-none text-dark" href=""><h1 class="d-inline">Logo</h1></a></header>
+
+    <div class="container mt-5">
+
+        <h1>Testando API's</h1>
+
+        <ul class="nav nav-tabs mt-5">
+            <li class="nav-item">
+                <button onclick="retorna1()" class="nav-link" id="aba1" aria-current="page">Ler</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="retorna2()" class="nav-link" id="aba2">Postar</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="retorna3()" class="nav-link" id="aba3">Atualizar</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="retorna4()" class="nav-link" id="aba4">Modificar</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="retorna5()" class="nav-link" id="aba5">Remover</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="retorna6()" class="nav-link" id="aba6">Filtrar</button>
+            </li>
+        </ul>
+
+        <div class="p-3">
+            <p id="pagina"></p>
+        </div>
+        
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
