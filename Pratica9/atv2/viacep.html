@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Testando APIs</title>
+
+    <script>
+
+        function imprime(objeto) {
+            var mensagem = `
+            <div class="card mt-3">
+                <div class="card-body">
+                    <p class='campo'>CEP: ${objeto.cep}</p>
+                    <p class='campo'>Logradouro: ${objeto.logradouro}</p>
+                    <p class='campo'>Bairro: ${objeto.bairro}</p>
+                    <p class='campo'>Cidade: ${objeto.localidade}</p>
+                    <p class='campo'>Estado: ${objeto.uf}</p>
+                </div>
+            </div>`
+            return mensagem;
+        }
+
+        async function getPostagem(id) {
+
+            await fetch(`https://viacep.com.br/ws/${id}/json/`)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    pagina.innerHTML += imprime(json);
+                });
+        }
+
+    </script>
+  </head>
+  <body>
+    <header class="container-fluid bg-light p-2"><a class="text-decoration-none text-dark" href=""><h1 class="d-inline">Logo</h1></a></header>
+
+    <div class="container mt-5">
+
+        <h1>API VIACEP</h1>
+
+        <div class="row">
+            <div class="col-3">
+                <input class="col-3 form-control" id="endereco" type="text" placeholder="Endereço">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary" onclick="getPostagem(endereco.value)">Pesquisar</button>
+            </div>
+        </div>
+
+        <div>
+            <p id="pagina"></p>
+        </div>
+        
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
